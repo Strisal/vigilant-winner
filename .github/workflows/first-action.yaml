@@ -1,5 +1,12 @@
-name: First Workflow
-on: workflow_dispatch
+name: Username print Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'First name'
+        required: true
+        default: 'user'
+        type: string
 jobs:
   first-job:
     runs-on: ubuntu-latest
