@@ -11,5 +11,9 @@ jobs:
             - name : Print a message
               run: echo "This is the second workflow"
             
+            - name: Sleep for 15 seconds
+              run: Start-Sleep -s 30
+              shell: powershell
+            
             - name: Print another message
               run: echo "This is another message"
