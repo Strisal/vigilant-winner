@@ -2,7 +2,7 @@ name: second workflow
 on:
     workflow_dispatch:
         inputs:
-            name:
+            name: 
                 description: "Do you want to run it now?"
                 required: true
                 default: "yes"
@@ -11,7 +11,9 @@ on:
                     - no
                 type: choice
 jobs:
+    
     push-job:
+        if : ${{github.event.inputs.name == 'yes'}}
         runs-on: ubuntu-latest
         steps:
             - name : Print a message
