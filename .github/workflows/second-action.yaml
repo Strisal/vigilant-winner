@@ -17,7 +17,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name : Print a message
-              run: echo "This is the second workflow"
+              run: | 
+                echo "This is the second workflow"
+                echo "This is second line of first step"
             
             - name: Sleep for 15 seconds
               run: sleep 20s
