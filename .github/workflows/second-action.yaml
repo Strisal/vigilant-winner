@@ -1,29 +1,28 @@
 name: second workflow
 on:
-    workflow_dispatch:
-        inputs:
-            name: 
-                description: "Do you want to run it now?"
-                required: true
-                default: "yes"
-                options:
-                    - yes
-                    - no
-                type: choice
+   push:
+    branches: [main]
+
 jobs:
-    
-    push-job:
-        if : ${{github.event.inputs.name == 'true'}}
-        runs-on: ubuntu-latest
-        steps:
-            - name : Print a message
-              run: | 
-                echo "This is the second workflow"
-                echo "This is second line of first step"
-            
-            - name: Sleep for 15 seconds
-              run: sleep 20s
-              shell: bash
-            
-            - name: Print another message
-              run: echo "This is another message"
+  end-to-end:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Node.Js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: echo "Deploying to Azure Webapp"
+        
+      - name: sleep
+        run: sleep 10
+
+
+
