@@ -19,6 +19,9 @@ jobs:
         run: npm ci
       
       - name: Run tests
+        run: npm test
+
+      - name: Deploy to Azure
         run: echo "Deploying to Azure Webapp"
         
       - name: sleep
